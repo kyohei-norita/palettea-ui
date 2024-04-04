@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/pa-lib",
       "sourceRoot": "projects/pa-lib/src",
-      "prefix": "lib",
+      "prefix": "pal",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
