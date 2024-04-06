@@ -1,3 +1,4 @@
+export * from './lib/rgb'
 export * from './stories/atoms/file-input-button/file-input-button.component'
 export * from './stories/atoms/icon-button/icon-button.component'
 export * from './stories/atoms/pick-mark/pick-mark.component'

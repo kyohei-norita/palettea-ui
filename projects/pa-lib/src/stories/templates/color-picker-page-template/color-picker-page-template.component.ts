@@ -2,6 +2,7 @@ import {Component, signal} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FileInputButtonComponent} from "../../atoms/file-input-button/file-input-button.component";
 import {PixelColorPickerComponent} from "../../molecules/pixel-color-picker/pixel-color-picker.component";
+import {formatAsRgb, toRGB} from "../../../lib/rgb";
 
 @Component({
   selector: 'pal-color-picker-page-template',
@@ -18,20 +19,7 @@ export class ColorPickerPageTemplateComponent {
   }
 
   colorPicked(imageData: ImageData) {
-    this.selectedColor.set(formatAsRgb(rgb(imageData)))
+    this.selectedColor.set(formatAsRgb(toRGB(imageData)))
   }
 }
 
-type RGB = {
-  r: number,
-  g: number,
-  b: number,
-}
-
-const rgb = (imageData: ImageData): RGB => ({
-  r: imageData.data[0],
-  g: imageData.data[1],
-  b: imageData.data[2],
-});
-
-const formatAsRgb = (rgb: RGB) => `rgb(${rgb.r},${rgb.g},${rgb.b})`

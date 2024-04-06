@@ -1,5 +1,5 @@
 import {argsToTemplate, Meta, StoryObj} from '@storybook/angular';
-import {TableComponent} from "./table.component";
+import {TableCellType, TableComponent} from "./table.component";
 
 const meta: Meta<TableComponent<any>> = {
   title: 'Organisms/Table',
@@ -26,14 +26,14 @@ export const Example: Story = {
       },
       rows: [
         {
-          'id': {type: 'string', value: 'id1'},
-          'name': {type: 'string', value: 'test1'},
-          'age': {type: 'number', value: 10},
+          'id': {type: TableCellType.STRING, value: 'id1'},
+          'name': {type: TableCellType.STRING, value: 'test1'},
+          'age': {type: TableCellType.NUMBER, value: 10},
         },
         {
-          'id': {type: 'string', value: 'id2'},
-          'name': {type: 'string', value: 'test2'},
-          'age': {type: 'number', value: 20},
+          'id': {type: TableCellType.STRING, value: 'id2'},
+          'name': {type: TableCellType.STRING, value: 'test2'},
+          'age': {type: TableCellType.NUMBER, value: 20},
         }
       ],
     }

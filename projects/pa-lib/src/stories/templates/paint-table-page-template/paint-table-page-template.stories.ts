@@ -1,5 +1,6 @@
 import {argsToTemplate, Meta, StoryObj} from '@storybook/angular';
 import {PaintTablePageTemplateComponent} from "./paint-table-page-template.component";
+import {TableCellType} from "../../organisms/table/table.component";
 
 const meta: Meta<PaintTablePageTemplateComponent> = {
   title: 'Templates/PaintTablePageTemplate',
@@ -22,21 +23,21 @@ export const Example: Story = {
       headers: {
         name: {title: 'Name'},
         rgb: {title: 'RGB'},
-        color: {title: 'Color'},
+        colorPreview: {title: 'Color'},
         diff: {title: 'Diff'},
       },
       rows: [
         {
-          name: {type: 'string', value: 'color name 1'},
-          rgb: {type: 'string', value: 'rgb(255, 255, 255)'},
-          color: {type: 'string', value: 'rgb(255, 255, 255)'},
-          diff: {type: 'number', value: 0.98},
+          name: {type: TableCellType.STRING, value: 'color name 1'},
+          rgb: {type: TableCellType.STRING, value: 'rgb(255, 255, 50)'},
+          colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:255, g: 255, b: 50}},
+          diff: {type: TableCellType.NUMBER, value: 0.98},
         },
         {
-          name: {type: 'string', value: 'color name 2'},
-          rgb: {type: 'string', value: 'rgb(0, 0, 0)'},
-          color: {type: 'string', value: 'rgb(0, 0, 0)'},
-          diff: {type: 'number', value: 1},
+          name: {type: TableCellType.STRING, value: 'color name 2'},
+          rgb: {type: TableCellType.STRING, value: 'rgb(200, 100, 50)'},
+          colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:200, g: 100, b: 50}},
+          diff: {type: TableCellType.NUMBER, value: 1},
         }
       ]
     }

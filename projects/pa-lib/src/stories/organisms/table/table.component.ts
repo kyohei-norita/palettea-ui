@@ -1,18 +1,31 @@
 import {Component, computed, Input, OnChanges, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {formatAsRgb, RGB} from "../../../lib/rgb";
+
+export const TableCellType = {
+  STRING: 'STRING',
+  NUMBER: 'NUMBER',
+  COLOR_PREVIEW: 'COLOR_PREVIEW',
+} as const;
 
 export type TableCell =
   | TableCellOfString
   | TableCellOfNumber
+  | TableCellOfColorPreview
 
 export type TableCellOfString = {
-  type: 'string'
+  type: typeof TableCellType.STRING,
   value: string
 }
 
 export type TableCellOfNumber = {
-  type: 'number'
+  type: typeof TableCellType.NUMBER,
   value: number
+}
+
+export type TableCellOfColorPreview = {
+  type: typeof TableCellType.COLOR_PREVIEW,
+  rgb: RGB
 }
 
 export type TableRow<I extends readonly string[]> = {
@@ -42,6 +55,8 @@ export class TableComponent<I extends readonly string[]> implements OnChanges {
   readonly headers = signal<TableHeaders<I> | undefined>(undefined)
   readonly rows = signal<TableRow<I>[]>([])
   readonly columnKeys = computed<string[]>(() => Object.keys(this.headers() ?? {}));
+  protected readonly TableCellType = TableCellType;
+  protected readonly formatAsRgb = formatAsRgb;
 
   ngOnChanges(): void {
     this.headers.set(this.dataSource.headers)

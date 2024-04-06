@@ -9,7 +9,13 @@
   <tbody>
   <tr *ngFor="let row of rows()">
     <td *ngFor="let key of columnKeys()">
-      {{ row[key].value }}
+      <ng-container [ngSwitch]="row[key].type">
+        <div *ngSwitchCase="TableCellType.STRING">{{ row[key].value }}</div>
+        <div *ngSwitchCase="TableCellType.NUMBER">{{ row[key].value | number }}</div>
+        <div *ngSwitchCase="TableCellType.COLOR_PREVIEW" class="color-preview">
+          <span class="color-preview-inner" [style.background-color]="formatAsRgb(row[key].rgb)"></span>
+        </div>
+      </ng-container>
     </td>
   </tr>
   </tbody>
