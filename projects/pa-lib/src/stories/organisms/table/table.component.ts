@@ -28,6 +28,25 @@ export type TableCellOfColorPreview = {
   rgb: RGB
 }
 
+export function match<T>(
+  cell: TableCell,
+  ifString: (cell: TableCellOfString) => T,
+  ifNumber: (cell: TableCellOfNumber) => T,
+  ifColorPreview: (cell: TableCellOfColorPreview) => T
+): T {
+  switch (cell.type) {
+    case TableCellType.STRING:
+      return ifString(cell);
+    case TableCellType.NUMBER:
+      return ifNumber(cell);
+    case TableCellType.COLOR_PREVIEW:
+      return ifColorPreview(cell);
+    default:
+      const _: never = cell;
+      throw new Error(_);
+  }
+}
+
 export type TableRow<I extends readonly string[]> = {
   [id in I[number]]: TableCell;
 }
@@ -52,14 +71,44 @@ export type Table<I extends readonly string[]> = {
 })
 export class TableComponent<I extends readonly string[]> implements OnChanges {
   @Input({required: true}) dataSource!: Table<I>;
-  readonly headers = signal<TableHeaders<I> | undefined>(undefined)
-  readonly rows = signal<TableRow<I>[]>([])
+  readonly headers = signal<TableHeaders<string[]> | undefined>(undefined)
+  readonly rows = signal<TableRow<string[]>[]>([])
   readonly columnKeys = computed<string[]>(() => Object.keys(this.headers() ?? {}));
   protected readonly TableCellType = TableCellType;
   protected readonly formatAsRgb = formatAsRgb;
+  protected readonly tableCellOfString = tableCellOfString;
+  protected readonly tableCellOfNumber = tableCellOfNumber;
+  protected readonly tableCellOfColorPreview = tableCellOfColorPreview;
 
   ngOnChanges(): void {
     this.headers.set(this.dataSource.headers)
     this.rows.set(this.dataSource.rows)
   }
+}
+
+function tableCellOfString(cell: TableCell): TableCellOfString {
+  return match(
+    cell,
+    a => a,
+    () => {throw new Error()},
+    () => {throw new Error()}
+  )
+}
+
+function tableCellOfNumber(cell: TableCell): TableCellOfNumber {
+  return match(
+    cell,
+    () => {throw new Error()},
+    a => a,
+    () => {throw new Error()}
+  )
+}
+
+function tableCellOfColorPreview(cell: TableCell): TableCellOfColorPreview {
+  return match(
+    cell,
+    () => {throw new Error()},
+    () => {throw new Error()},
+    a => a,
+  )
 }

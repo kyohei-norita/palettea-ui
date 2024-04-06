@@ -9,13 +9,18 @@
   <tbody>
   <tr *ngFor="let row of rows()">
     <td *ngFor="let key of columnKeys()">
-      <ng-container [ngSwitch]="row[key].type">
-        <div *ngSwitchCase="TableCellType.STRING">{{ row[key].value }}</div>
-        <div *ngSwitchCase="TableCellType.NUMBER">{{ row[key].value | number }}</div>
-        <div *ngSwitchCase="TableCellType.COLOR_PREVIEW" class="color-preview">
-          <span class="color-preview-inner" [style.background-color]="formatAsRgb(row[key].rgb)"></span>
-        </div>
-      </ng-container>
+ko      <div *ngIf="row[key].type === TableCellType.STRING">
+        {{ tableCellOfString(row[key]).value }}
+      </div>
+      <div *ngIf="row[key].type === TableCellType.NUMBER">
+        {{ tableCellOfNumber(row[key]).value | number }}
+      </div>
+      <div *ngIf="row[key].type === TableCellType.COLOR_PREVIEW" class="color-preview">
+        <span
+          class="color-preview-inner"
+          [style.background-color]="formatAsRgb(tableCellOfColorPreview(row[key]).rgb)"
+        ></span>
+      </div>
     </td>
   </tr>
   </tbody>
