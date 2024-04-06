@@ -1,5 +1,5 @@
 import {argsToTemplate, Meta, StoryObj} from '@storybook/angular';
-import {Table, TableComponent} from "./table.component";
+import {TableComponent} from "./table.component";
 
 const meta: Meta<TableComponent<any>> = {
   title: 'Organisms/Table',
