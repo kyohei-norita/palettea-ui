@@ -1,1 +1,7 @@
+export * from './stories/atoms/file-input-button/file-input-button.component'
 export * from './stories/atoms/icon-button/icon-button.component'
+export * from './stories/atoms/pick-mark/pick-mark.component'
+export * from './stories/molecules/pixel-color-picker/pixel-color-picker.component'
+export * from './stories/organisms/table/table.component'
+export * from './stories/templates/color-picker-page-template/color-picker-page-template.component'
+export * from './stories/templates/paint-table-page-template/paint-table-page-template.component'
