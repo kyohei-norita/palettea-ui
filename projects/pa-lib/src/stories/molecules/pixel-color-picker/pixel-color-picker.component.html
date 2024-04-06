@@ -1,0 +1,10 @@
+<canvas
+  #palette
+  class="palette"
+  (click)="pick($event)"
+></canvas>
+<pal-pick-mark
+  class="pick-mark"
+  [style.top]="position().top"
+  [style.left]="position().left"
+/>
