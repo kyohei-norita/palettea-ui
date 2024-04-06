@@ -1,0 +1,16 @@
+<table>
+  <thead>
+  <tr *ngIf="headers() !== undefined">
+    <th *ngFor="let key of columnKeys()">
+      {{ headers()![key].title }}
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of rows()">
+    <td *ngFor="let key of columnKeys()">
+      {{ row[key].value }}
+    </td>
+  </tr>
+  </tbody>
+</table>
