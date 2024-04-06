@@ -1,0 +1,8 @@
+<label for="file-upload" class="file-upload">
+  <ng-content/>
+</label>
+<input id="file-upload"
+       type="file"
+       style="display: none;"
+       (change)="change($event)"
+/>
