@@ -11,84 +11,144 @@
     "miscellaneous": {
         "variables": [
             {
-                "name": "Large",
+                "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/pa-lib/src/stories/button.stories.ts",
+                "file": "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-file-input-button>ファイルを選択</pal-file-input-button>\n    `,\n  }),\n}"
             },
             {
-                "name": "LoggedIn",
+                "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/pa-lib/src/stories/header.stories.ts",
+                "file": "projects/pa-lib/src/stories/atoms/icon-button/icon-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    user: {\n      name: 'Jane Doe',\n    },\n  },\n}"
+                "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-icon-button>star</pal-icon-button>\n    `,\n  }),\n}"
             },
             {
-                "name": "LoggedIn",
+                "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/pa-lib/src/stories/page.stories.ts",
+                "file": "projects/pa-lib/src/stories/atoms/pick-mark/pick-mark.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\n    await expect(loginButton).toBeInTheDocument();\n    await userEvent.click(loginButton);\n    await expect(loginButton).not.toBeInTheDocument();\n\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\n    await expect(logoutButton).toBeInTheDocument();\n  },\n}"
+                "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-pick-mark/>\n    `,\n  }),\n}"
             },
             {
-                "name": "LoggedOut",
+                "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/pa-lib/src/stories/header.stories.ts",
+                "file": "projects/pa-lib/src/stories/molecules/pixel-color-picker/pixel-color-picker.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{}"
+                "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-pixel-color-picker ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    dataUrl: sampleData,\n  },\n}"
             },
             {
-                "name": "LoggedOut",
+                "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/pa-lib/src/stories/page.stories.ts",
+                "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{}"
+                "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-color-picker-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n\n  },\n}"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-paint-table-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    dataSource: {\n      headers: {\n        name: {title: 'Name'},\n        rgb: {title: 'RGB'},\n        color: {title: 'Color'},\n        diff: {title: 'Diff'},\n      },\n      rows: [\n        {\n          name: {type: 'string', value: 'color name 1'},\n          rgb: {type: 'string', value: 'rgb(255, 255, 255)'},\n          color: {type: 'string', value: 'rgb(255, 255, 255)'},\n          diff: {type: 'number', value: 0.98},\n        },\n        {\n          name: {type: 'string', value: 'color name 2'},\n          rgb: {type: 'string', value: 'rgb(0, 0, 0)'},\n          color: {type: 'string', value: 'rgb(0, 0, 0)'},\n          diff: {type: 'number', value: 1},\n        }\n      ]\n    }\n  },\n}"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-table ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    dataSource: {\n      headers: {\n        'id': {title: 'ID'},\n        'name': {title: 'NAME'},\n        'age': {title: 'AGE'},\n      },\n      rows: [\n        {\n          'id': {type: 'string', value: 'id1'},\n          'name': {type: 'string', value: 'test1'},\n          'age': {type: 'number', value: 10},\n        },\n        {\n          'id': {type: 'string', value: 'id2'},\n          'name': {type: 'string', value: 'test2'},\n          'age': {type: 'number', value: 20},\n        }\n      ],\n    }\n  },\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/pa-lib/src/stories/button.stories.ts",
+                "file": "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  args: { onClick: fn() },\n}"
+                "type": "Meta<FileInputButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/FileInputButton',\n  component: FileInputButtonComponent,\n  tags: ['autodocs'],\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/pa-lib/src/stories/header.stories.ts",
+                "file": "projects/pa-lib/src/stories/atoms/icon-button/icon-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<HeaderComponent>",
-                "defaultValue": "{\n  title: 'Example/Header',\n  component: HeaderComponent,\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\n  tags: ['autodocs'],\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  args: {\n    onLogin: fn(),\n    onLogout: fn(),\n    onCreateAccount: fn(),\n  },\n}"
+                "type": "Meta<IconButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/IconButton',\n  component: IconButtonComponent,\n  tags: ['autodocs'],\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/pa-lib/src/stories/page.stories.ts",
+                "file": "projects/pa-lib/src/stories/atoms/pick-mark/pick-mark.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<PageComponent>",
-                "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
+                "type": "Meta<PickMarkComponent>",
+                "defaultValue": "{\n  title: 'Atoms/PickMark',\n  component: PickMarkComponent,\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/molecules/pixel-color-picker/pixel-color-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<PixelColorPickerComponent>",
+                "defaultValue": "{\n  title: 'Molecules/PixelColorPicker',\n  component: PixelColorPickerComponent,\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ColorPickerPageTemplateComponent>",
+                "defaultValue": "{\n  title: 'Templates/ColorPickerPageTemplate',\n  component: ColorPickerPageTemplateComponent,\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<PaintTablePageTemplateComponent>",
+                "defaultValue": "{\n  title: 'Templates/PaintTablePageTemplate',\n  component: PaintTablePageTemplateComponent,\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TableComponent<any>>",
+                "defaultValue": "{\n  title: 'Organisms/Table',\n  component: TableComponent,\n  tags: ['autodocs'],\n}"
             },
             {
                 "name": "preview",
@@ -99,36 +159,6 @@
                 "deprecationMessage": "",
                 "type": "Preview",
                 "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/pa-lib/src/stories/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
-            },
-            {
-                "name": "Secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/pa-lib/src/stories/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
-            },
-            {
-                "name": "Small",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/pa-lib/src/stories/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
             }
         ],
         "functions": [],
@@ -137,8 +167,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "projects/pa-lib/src/stories/button.stories.ts",
+                "rawtype": "StoryObj<FileInputButtonComponent>",
+                "file": "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -148,8 +178,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<HeaderComponent>",
-                "file": "projects/pa-lib/src/stories/header.stories.ts",
+                "rawtype": "StoryObj<IconButtonComponent>",
+                "file": "projects/pa-lib/src/stories/atoms/icon-button/icon-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -159,8 +189,52 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<PageComponent>",
-                "file": "projects/pa-lib/src/stories/page.stories.ts",
+                "rawtype": "StoryObj<PickMarkComponent>",
+                "file": "projects/pa-lib/src/stories/atoms/pick-mark/pick-mark.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<PixelColorPickerComponent>",
+                "file": "projects/pa-lib/src/stories/molecules/pixel-color-picker/pixel-color-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ColorPickerPageTemplateComponent>",
+                "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<PaintTablePageTemplateComponent>",
+                "file": "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TableComponent<>>",
+                "file": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -169,120 +243,158 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "projects/pa-lib/src/stories/button.stories.ts": [
+            "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts": [
                 {
-                    "name": "Large",
+                    "name": "Example",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/button.stories.ts",
+                    "file": "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-file-input-button>ファイルを選択</pal-file-input-button>\n    `,\n  }),\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/button.stories.ts",
+                    "file": "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args\n  args: { onClick: fn() },\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
-                },
-                {
-                    "name": "Small",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                    "type": "Meta<FileInputButtonComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/FileInputButton',\n  component: FileInputButtonComponent,\n  tags: ['autodocs'],\n}"
                 }
             ],
-            "projects/pa-lib/src/stories/header.stories.ts": [
+            "projects/pa-lib/src/stories/atoms/icon-button/icon-button.stories.ts": [
                 {
-                    "name": "LoggedIn",
+                    "name": "Example",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/header.stories.ts",
+                    "file": "projects/pa-lib/src/stories/atoms/icon-button/icon-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    user: {\n      name: 'Jane Doe',\n    },\n  },\n}"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
+                    "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-icon-button>star</pal-icon-button>\n    `,\n  }),\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/header.stories.ts",
+                    "file": "projects/pa-lib/src/stories/atoms/icon-button/icon-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<HeaderComponent>",
-                    "defaultValue": "{\n  title: 'Example/Header',\n  component: HeaderComponent,\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\n  tags: ['autodocs'],\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  args: {\n    onLogin: fn(),\n    onLogout: fn(),\n    onCreateAccount: fn(),\n  },\n}"
+                    "type": "Meta<IconButtonComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/IconButton',\n  component: IconButtonComponent,\n  tags: ['autodocs'],\n}"
                 }
             ],
-            "projects/pa-lib/src/stories/page.stories.ts": [
+            "projects/pa-lib/src/stories/atoms/pick-mark/pick-mark.stories.ts": [
                 {
-                    "name": "LoggedIn",
+                    "name": "Example",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/page.stories.ts",
+                    "file": "projects/pa-lib/src/stories/atoms/pick-mark/pick-mark.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\n    await expect(loginButton).toBeInTheDocument();\n    await userEvent.click(loginButton);\n    await expect(loginButton).not.toBeInTheDocument();\n\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\n    await expect(logoutButton).toBeInTheDocument();\n  },\n}"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
+                    "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-pick-mark/>\n    `,\n  }),\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/page.stories.ts",
+                    "file": "projects/pa-lib/src/stories/atoms/pick-mark/pick-mark.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<PageComponent>",
-                    "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
+                    "type": "Meta<PickMarkComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/PickMark',\n  component: PickMarkComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
+            "projects/pa-lib/src/stories/molecules/pixel-color-picker/pixel-color-picker.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/molecules/pixel-color-picker/pixel-color-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-pixel-color-picker ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    dataUrl: sampleData,\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/molecules/pixel-color-picker/pixel-color-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<PixelColorPickerComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/PixelColorPicker',\n  component: PixelColorPickerComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
+            "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-color-picker-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ColorPickerPageTemplateComponent>",
+                    "defaultValue": "{\n  title: 'Templates/ColorPickerPageTemplate',\n  component: ColorPickerPageTemplateComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
+            "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-paint-table-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    dataSource: {\n      headers: {\n        name: {title: 'Name'},\n        rgb: {title: 'RGB'},\n        color: {title: 'Color'},\n        diff: {title: 'Diff'},\n      },\n      rows: [\n        {\n          name: {type: 'string', value: 'color name 1'},\n          rgb: {type: 'string', value: 'rgb(255, 255, 255)'},\n          color: {type: 'string', value: 'rgb(255, 255, 255)'},\n          diff: {type: 'number', value: 0.98},\n        },\n        {\n          name: {type: 'string', value: 'color name 2'},\n          rgb: {type: 'string', value: 'rgb(0, 0, 0)'},\n          color: {type: 'string', value: 'rgb(0, 0, 0)'},\n          diff: {type: 'number', value: 1},\n        }\n      ]\n    }\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<PaintTablePageTemplateComponent>",
+                    "defaultValue": "{\n  title: 'Templates/PaintTablePageTemplate',\n  component: PaintTablePageTemplateComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
+            "projects/pa-lib/src/stories/organisms/table/table.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-table ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    dataSource: {\n      headers: {\n        'id': {title: 'ID'},\n        'name': {title: 'NAME'},\n        'age': {title: 'AGE'},\n      },\n      rows: [\n        {\n          'id': {type: 'string', value: 'id1'},\n          'name': {type: 'string', value: 'test1'},\n          'age': {type: 'number', value: 10},\n        },\n        {\n          'id': {type: 'string', value: 'id2'},\n          'name': {type: 'string', value: 'test2'},\n          'age': {type: 'number', value: 20},\n        }\n      ],\n    }\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TableComponent<any>>",
+                    "defaultValue": "{\n  title: 'Organisms/Table',\n  component: TableComponent,\n  tags: ['autodocs'],\n}"
                 }
             ],
             "projects/pa-lib/.storybook/preview.ts": [
@@ -301,39 +413,91 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "projects/pa-lib/src/stories/button.stories.ts": [
+            "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "projects/pa-lib/src/stories/button.stories.ts",
+                    "rawtype": "StoryObj<FileInputButtonComponent>",
+                    "file": "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 183
                 }
             ],
-            "projects/pa-lib/src/stories/header.stories.ts": [
+            "projects/pa-lib/src/stories/atoms/icon-button/icon-button.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<HeaderComponent>",
-                    "file": "projects/pa-lib/src/stories/header.stories.ts",
+                    "rawtype": "StoryObj<IconButtonComponent>",
+                    "file": "projects/pa-lib/src/stories/atoms/icon-button/icon-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 183
                 }
             ],
-            "projects/pa-lib/src/stories/page.stories.ts": [
+            "projects/pa-lib/src/stories/atoms/pick-mark/pick-mark.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<PageComponent>",
-                    "file": "projects/pa-lib/src/stories/page.stories.ts",
+                    "rawtype": "StoryObj<PickMarkComponent>",
+                    "file": "projects/pa-lib/src/stories/atoms/pick-mark/pick-mark.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/pa-lib/src/stories/molecules/pixel-color-picker/pixel-color-picker.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<PixelColorPickerComponent>",
+                    "file": "projects/pa-lib/src/stories/molecules/pixel-color-picker/pixel-color-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ColorPickerPageTemplateComponent>",
+                    "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<PaintTablePageTemplateComponent>",
+                    "file": "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/pa-lib/src/stories/organisms/table/table.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TableComponent<>>",
+                    "file": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -358,77 +522,17 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/pa-lib/src/stories/button.stories.ts",
+                "filePath": "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Large",
+                "name": "Example",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/pa-lib/src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/pa-lib/src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/pa-lib/src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Secondary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/pa-lib/src/stories/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Small",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/pa-lib/src/stories/header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/pa-lib/src/stories/header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/pa-lib/src/stories/header.stories.ts",
+                "filePath": "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -438,27 +542,117 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/pa-lib/src/stories/page.stories.ts",
+                "filePath": "projects/pa-lib/src/stories/atoms/icon-button/icon-button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "LoggedIn",
+                "name": "Example",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/pa-lib/src/stories/page.stories.ts",
+                "filePath": "projects/pa-lib/src/stories/atoms/icon-button/icon-button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "LoggedOut",
+                "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/pa-lib/src/stories/page.stories.ts",
+                "filePath": "projects/pa-lib/src/stories/atoms/pick-mark/pick-mark.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/atoms/pick-mark/pick-mark.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/molecules/pixel-color-picker/pixel-color-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/molecules/pixel-color-picker/pixel-color-picker.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
