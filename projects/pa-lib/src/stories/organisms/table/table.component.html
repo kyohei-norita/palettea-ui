@@ -9,7 +9,7 @@
   <tbody>
   <tr *ngFor="let row of rows()">
     <td *ngFor="let key of columnKeys()">
-ko      <div *ngIf="row[key].type === TableCellType.STRING">
+      <div *ngIf="row[key].type === TableCellType.STRING">
         {{ tableCellOfString(row[key]).value }}
       </div>
       <div *ngIf="row[key].type === TableCellType.NUMBER">
