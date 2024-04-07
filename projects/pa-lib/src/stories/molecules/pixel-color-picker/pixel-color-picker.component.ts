@@ -4,14 +4,14 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnChanges, OnInit,
+  OnChanges,
+  OnInit,
   Output,
   signal,
   ViewChild
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {PickMarkComponent} from "../../atoms/pick-mark/pick-mark.component";
-import * as assert from "assert";
 
 @Component({
   selector: 'pal-pixel-color-picker',
@@ -32,7 +32,7 @@ export class PixelColorPickerComponent implements OnInit, OnChanges, AfterViewIn
 
   ngOnInit(): void {
     this._img.onload = () => {
-      assert(this._canvasContext)
+      if (this._canvasContext === undefined) return;
       const shrinkageRateY = 400 / this._img.height;
       const shrinkageRateX = 400 / this._img.width;
       const shrinkageRate = (shrinkageRateY < shrinkageRateX) ? shrinkageRateY : shrinkageRateX;
