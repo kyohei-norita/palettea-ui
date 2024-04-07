@@ -1,7 +1,6 @@
 :host {
   position: relative;
   display: block;
-  width: 400px;
 
   .pick-mark {
     position: absolute;
@@ -10,9 +9,6 @@
 }
 
 .palette {
-  position: absolute;
-  top: 0;
-  left: 0;
   border: solid 0.1rem black;
   border-radius: 0.25rem;
 }

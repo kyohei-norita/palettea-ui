@@ -13,7 +13,7 @@ import {formatAsRgb, RGB, toRGB} from "../../../lib/rgb";
 })
 export class ColorPickerPageTemplateComponent {
   @Output() onColorPick = new EventEmitter<RGB>();
-  readonly dataUrl = signal<string>('')
+  readonly dataUrl = signal<string | undefined>(undefined)
   readonly selectedColor = signal<string>('');
   fileLoaded(dataUrl: string) {
     this.dataUrl.set(dataUrl)

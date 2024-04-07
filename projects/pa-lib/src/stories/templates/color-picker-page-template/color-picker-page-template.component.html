@@ -1,12 +1,19 @@
 <div class="left">
-  <pal-pixel-color-picker
-    [dataUrl]="dataUrl()"
-    (onColorPick)="colorPicked($event)"
-  />
+  <ng-container *ngIf="dataUrl() !== undefined; else noData">
+    <pal-pixel-color-picker
+      [dataUrl]="dataUrl()!"
+      (onColorPick)="colorPicked($event)"
+    />
+  </ng-container>
+  <ng-template #noData>
+    <div class="no-data-text">
+      画像ファイルをアップロードしてください
+    </div>
+  </ng-template>
 </div>
 <div class="right">
   <pal-file-input-button (onFileLoad)="fileLoaded($event)">
-    ファイルを選択
+    アップロード
   </pal-file-input-button>
   <div class="selected-color">
     <span

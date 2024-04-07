@@ -27,3 +27,13 @@
 
 }
 
+.no-data-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  width: 400px;
+  height: 400px;
+  border: solid 0.1rem black;
+  border-radius: 0.3rem;
+}
