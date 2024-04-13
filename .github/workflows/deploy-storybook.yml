@@ -7,7 +7,7 @@ on:
     paths:
       - 'projects/pa-lib/package.json'
 jobs:
-  build-and-publish:
+  deploy-storybook:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
