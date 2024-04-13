@@ -22,9 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: build library
-        run: |
-          npx ng build
+      - name: Build library
+        run: npx ng build
 
       - name: Publish to NPM
         run: |
