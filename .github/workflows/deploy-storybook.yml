@@ -34,3 +34,5 @@ jobs:
 
       - name: Deploy
         run: npx gh-pages -d storybook-static
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
