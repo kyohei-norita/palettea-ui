@@ -38,3 +38,5 @@ jobs:
 
       - name: Deploy
         run: npx gh-pages -d storybook-static
+        with:
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
