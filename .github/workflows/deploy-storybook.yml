@@ -33,6 +33,6 @@ jobs:
           git config --local user.name "GitHub Action"
 
       - name: Deploy
-        run: npx gh-pages -d storybook-static
+        run: npx gh-pages -d storybook-static -r https://${{ secrets.GITHUB_TOKEN }}@github.com:kyohei-norita/palettea-ui.git
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
