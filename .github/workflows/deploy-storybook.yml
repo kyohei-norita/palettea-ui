@@ -27,5 +27,10 @@ jobs:
           npx ng build
           npx ng run pa-lib:build-storybook
 
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
       - name: Deploy
         run: npx gh-pages -d storybook-static
