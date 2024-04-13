@@ -32,7 +32,7 @@ jobs:
           git add package.json
           git commit -m "update package.json"
           cd ../../
-          ng build
+          npx ng build
 
       - name: Publish to NPM
         run: |
