@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - 'projects/pa-lib/package.json'
+permissions:
+  contents: write
 jobs:
   deploy-storybook:
     runs-on: ubuntu-latest
