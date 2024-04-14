@@ -1,4 +1,4 @@
-name: Deploy Storybook to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -8,19 +8,17 @@ on:
       - 'projects/pa-lib/package.json'
 
 jobs:
-  deploy-storybook:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: npm install
@@ -30,18 +28,10 @@ jobs:
           npx ng build
           npx ng run pa-lib:build-storybook
 
-      - name: Configure Git
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: storybook-static
 
-      - name: Setup SSH for Deployment
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          git remote set-url origin git@github.com:kyohei-norita/palettea-ui.git
-
-      - name: Deploy
-        run: npx gh-pages -d storybook-static
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
