@@ -6,8 +6,7 @@ on:
       - main
     paths:
       - 'projects/pa-lib/package.json'
-permissions:
-  contents: write
+
 jobs:
   deploy-storybook:
     runs-on: ubuntu-latest
@@ -36,7 +35,13 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
 
+      - name: Setup SSH for Deployment
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git remote set-url origin git@github.com:username/repo.git
+
       - name: Deploy
         run: npx gh-pages -d storybook-static
-        with:
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
