@@ -1,0 +1,20 @@
+<h1>{{input.pageTitle}}</h1>
+<pal-text-form [input]="{
+                  label: input.forms.paintName.label,
+                  required: true,
+                }"
+               (onChangeText)="changePaintName($event)"/>
+<pal-text-form [input]="{
+                  label: input.forms.colorCode.label,
+                  required: true,
+                }"
+               (onChangeText)="changeColorCode($event)"/>
+<pal-select-form [input]="{
+                    label: input.forms.coatingType.label,
+                    options: input.forms.coatingType.options,
+                    required: true,
+                  }"
+                 (onSelect)="changeCoatingType($event.value)"/>
+<div class="footer">
+  <pal-button (click)="register()">{{input.buttonName}}</pal-button>
+</div>
