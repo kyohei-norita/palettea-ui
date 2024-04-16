@@ -1,0 +1,15 @@
+
+.text-form {
+  border: 1px solid #0000008a;
+  border-radius: 4px;
+  padding: 0.5em;
+
+  input {
+    width: 100%;
+  }
+
+  &:has(> input:focus) {
+    box-shadow: 0 0 0 2px #3535e7 inset;
+  }
+}
+

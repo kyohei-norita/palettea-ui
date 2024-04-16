@@ -1,0 +1,8 @@
+<div *ngIf="input.label !== undefined">
+  {{input.label}}
+</div>
+<div class="text-form">
+  <div class="prefix"></div>
+  <input type="text" [formControl]="textFormControl"/>
+  <div class="suffix"></div>
+</div>
