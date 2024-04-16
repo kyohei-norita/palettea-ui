@@ -11,6 +11,36 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "COATING_TYPE_SELECT_OPTIONS",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Option[]",
+                "defaultValue": "[\n  {\n    label: 'ラッカー',\n    value: 'LACQUER',\n  },\n  {\n    label: 'アクリル',\n    value: 'ACRYLIC',\n  },\n  {\n    label: 'エナメル',\n    value: 'ENAMEL',\n  },\n]"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-color-picker-page-template ${argsToTemplate(args)}>\n        ng-content\n      </pal-color-picker-page-template>\n    `\n  }),\n  args: {\n    input: {\n      pageTitle: 'Title',\n    }\n  },\n}"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-button>register</pal-button>\n    `,\n  }),\n}"
+            },
+            {
                 "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -54,6 +84,26 @@
                 "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/molecules/select-form/select-form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-select-form ${argsToTemplate(args)}></pal-select-form>\n    `,\n  }),\n  args: {\n    input: {\n      label: 'ラベル',\n      options: [\n        {\n          label: 'Option 1',\n          value: '1',\n        },\n        {\n          label: 'Option 2',\n          value: '2',\n        }\n      ],\n      required: true,\n    },\n  }\n}"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/molecules/text-form/text-form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-text-form></pal-text-form>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -68,7 +118,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-color-picker-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n\n  },\n}"
+                "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-color-picker-page-template ${argsToTemplate(args)}>\n        <pal-paint-table-page-template [input]=\"paintTablePageInput\"/>\n      </pal-color-picker-page-template>\n    `\n  }),\n  args: {\n    input: {\n      pageTitle: 'Title',\n    },\n    paintTablePageInput: PaintTablePageTemplate.Example.args?.input\n  },\n}"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-paint-registration-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    input: {\n      pageTitle: 'Title',\n      forms: {\n        paintName: {\n          label: 'paintName',\n        },\n        colorCode: {\n          label: 'colorCode',\n        },\n        coatingType: {\n          label: 'coatingType',\n          options: COATING_TYPE_SELECT_OPTIONS,\n        },\n      },\n      buttonName: 'register',\n    }\n  },\n}"
             },
             {
                 "name": "Example",
@@ -78,7 +138,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-paint-table-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    dataSource: {\n      headers: {\n        name: {title: 'Name'},\n        rgb: {title: 'RGB'},\n        colorPreview: {title: 'Color'},\n        diff: {title: 'Diff'},\n      },\n      rows: [\n        {\n          name: {type: TableCellType.STRING, value: 'color name 1'},\n          rgb: {type: TableCellType.STRING, value: 'rgb(255, 255, 50)'},\n          colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:255, g: 255, b: 50}},\n          diff: {type: TableCellType.NUMBER, value: 0.98},\n        },\n        {\n          name: {type: TableCellType.STRING, value: 'color name 2'},\n          rgb: {type: TableCellType.STRING, value: 'rgb(200, 100, 50)'},\n          colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:200, g: 100, b: 50}},\n          diff: {type: TableCellType.NUMBER, value: 1},\n        }\n      ]\n    }\n  },\n}"
+                "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-paint-table-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    input: {\n      dataSource: {\n        headers: {\n          name: {title: 'Name'},\n          rgb: {title: 'RGB'},\n          colorPreview: {title: 'Color'},\n          diff: {title: 'Diff'},\n        },\n        rows: [\n          {\n            name: {type: TableCellType.STRING, value: 'color name 1'},\n            rgb: {type: TableCellType.STRING, value: 'rgb(255, 255, 50)'},\n            colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:255, g: 255, b: 50}},\n            diff: {type: TableCellType.NUMBER, value: 0.98},\n          },\n          {\n            name: {type: TableCellType.STRING, value: 'color name 2'},\n            rgb: {type: TableCellType.STRING, value: 'rgb(200, 100, 50)'},\n            colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:200, g: 100, b: 50}},\n            diff: {type: TableCellType.NUMBER, value: 1},\n          }\n        ]\n      }\n    }\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n}"
             },
             {
                 "name": "meta",
@@ -124,6 +194,26 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/molecules/select-form/select-form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SelectFormComponent>",
+                "defaultValue": "{\n  title: 'Molecules/SelectForm',\n  component: SelectFormComponent,\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/molecules/text-form/text-form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TextFormComponent>",
+                "defaultValue": "{\n  title: 'Molecules/TextForm',\n  component: TextFormComponent,\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -138,7 +228,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ColorPickerPageTemplateComponent>",
-                "defaultValue": "{\n  title: 'Templates/ColorPickerPageTemplate',\n  component: ColorPickerPageTemplateComponent,\n  tags: ['autodocs'],\n}"
+                "defaultValue": "{\n  title: 'Templates/ColorPickerPageTemplate',\n  component: ColorPickerPageTemplateComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [\n        PaintTablePageTemplateComponent,\n      ],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<PaintRegistrationPageTemplateComponent>",
+                "defaultValue": "{\n  title: 'Templates/PaintRegistrationPageTemplate',\n  component: PaintRegistrationPageTemplateComponent,\n  tags: ['autodocs'],\n}"
             },
             {
                 "name": "meta",
@@ -163,6 +263,28 @@
         ],
         "functions": [],
         "typealiases": [
+            {
+                "name": "ColorPickerPagePropsAndOtherPageProps",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 193
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "projects/pa-lib/src/stories/atoms/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
             {
                 "name": "Story",
                 "ctype": "miscellaneous",
@@ -211,6 +333,28 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<SelectFormComponent>",
+                "file": "projects/pa-lib/src/stories/molecules/select-form/select-form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TextFormComponent>",
+                "file": "projects/pa-lib/src/stories/molecules/text-form/text-form.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<TableComponent<>>",
                 "file": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
                 "deprecated": false,
@@ -222,8 +366,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ColorPickerPageTemplateComponent>",
+                "rawtype": "StoryObj<ColorPickerPagePropsAndOtherPageProps>",
                 "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<PaintRegistrationPageTemplateComponent>",
+                "file": "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -243,6 +398,92 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts": [
+                {
+                    "name": "COATING_TYPE_SELECT_OPTIONS",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Option[]",
+                    "defaultValue": "[\n  {\n    label: 'ラッカー',\n    value: 'LACQUER',\n  },\n  {\n    label: 'アクリル',\n    value: 'ACRYLIC',\n  },\n  {\n    label: 'エナメル',\n    value: 'ENAMEL',\n  },\n]"
+                },
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-paint-registration-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    input: {\n      pageTitle: 'Title',\n      forms: {\n        paintName: {\n          label: 'paintName',\n        },\n        colorCode: {\n          label: 'colorCode',\n        },\n        coatingType: {\n          label: 'coatingType',\n          options: COATING_TYPE_SELECT_OPTIONS,\n        },\n      },\n      buttonName: 'register',\n    }\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<PaintRegistrationPageTemplateComponent>",
+                    "defaultValue": "{\n  title: 'Templates/PaintRegistrationPageTemplate',\n  component: PaintRegistrationPageTemplateComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
+            "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-color-picker-page-template ${argsToTemplate(args)}>\n        ng-content\n      </pal-color-picker-page-template>\n    `\n  }),\n  args: {\n    input: {\n      pageTitle: 'Title',\n    }\n  },\n}"
+                },
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-color-picker-page-template ${argsToTemplate(args)}>\n        <pal-paint-table-page-template [input]=\"paintTablePageInput\"/>\n      </pal-color-picker-page-template>\n    `\n  }),\n  args: {\n    input: {\n      pageTitle: 'Title',\n    },\n    paintTablePageInput: PaintTablePageTemplate.Example.args?.input\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ColorPickerPageTemplateComponent>",
+                    "defaultValue": "{\n  title: 'Templates/ColorPickerPageTemplate',\n  component: ColorPickerPageTemplateComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [\n        PaintTablePageTemplateComponent,\n      ],\n    }),\n  ],\n}"
+                }
+            ],
+            "projects/pa-lib/src/stories/atoms/button/button.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-button>register</pal-button>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ButtonComponent>",
+                    "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
             "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts": [
                 {
                     "name": "Example",
@@ -331,6 +572,50 @@
                     "defaultValue": "{\n  title: 'Molecules/PixelColorPicker',\n  component: PixelColorPickerComponent,\n  tags: ['autodocs'],\n}"
                 }
             ],
+            "projects/pa-lib/src/stories/molecules/select-form/select-form.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/molecules/select-form/select-form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-select-form ${argsToTemplate(args)}></pal-select-form>\n    `,\n  }),\n  args: {\n    input: {\n      label: 'ラベル',\n      options: [\n        {\n          label: 'Option 1',\n          value: '1',\n        },\n        {\n          label: 'Option 2',\n          value: '2',\n        }\n      ],\n      required: true,\n    },\n  }\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/molecules/select-form/select-form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<SelectFormComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/SelectForm',\n  component: SelectFormComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
+            "projects/pa-lib/src/stories/molecules/text-form/text-form.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/molecules/text-form/text-form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-text-form></pal-text-form>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/molecules/text-form/text-form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TextFormComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/TextForm',\n  component: TextFormComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
             "projects/pa-lib/src/stories/organisms/table/table.stories.ts": [
                 {
                     "name": "Example",
@@ -353,28 +638,6 @@
                     "defaultValue": "{\n  title: 'Organisms/Table',\n  component: TableComponent,\n  tags: ['autodocs'],\n}"
                 }
             ],
-            "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts": [
-                {
-                    "name": "Example",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-color-picker-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ColorPickerPageTemplateComponent>",
-                    "defaultValue": "{\n  title: 'Templates/ColorPickerPageTemplate',\n  component: ColorPickerPageTemplateComponent,\n  tags: ['autodocs'],\n}"
-                }
-            ],
             "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts": [
                 {
                     "name": "Example",
@@ -384,7 +647,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-paint-table-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    dataSource: {\n      headers: {\n        name: {title: 'Name'},\n        rgb: {title: 'RGB'},\n        colorPreview: {title: 'Color'},\n        diff: {title: 'Diff'},\n      },\n      rows: [\n        {\n          name: {type: TableCellType.STRING, value: 'color name 1'},\n          rgb: {type: TableCellType.STRING, value: 'rgb(255, 255, 50)'},\n          colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:255, g: 255, b: 50}},\n          diff: {type: TableCellType.NUMBER, value: 0.98},\n        },\n        {\n          name: {type: TableCellType.STRING, value: 'color name 2'},\n          rgb: {type: TableCellType.STRING, value: 'rgb(200, 100, 50)'},\n          colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:200, g: 100, b: 50}},\n          diff: {type: TableCellType.NUMBER, value: 1},\n        }\n      ]\n    }\n  },\n}"
+                    "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-paint-table-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    input: {\n      dataSource: {\n        headers: {\n          name: {title: 'Name'},\n          rgb: {title: 'RGB'},\n          colorPreview: {title: 'Color'},\n          diff: {title: 'Diff'},\n        },\n        rows: [\n          {\n            name: {type: TableCellType.STRING, value: 'color name 1'},\n            rgb: {type: TableCellType.STRING, value: 'rgb(255, 255, 50)'},\n            colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:255, g: 255, b: 50}},\n            diff: {type: TableCellType.NUMBER, value: 0.98},\n          },\n          {\n            name: {type: TableCellType.STRING, value: 'color name 2'},\n            rgb: {type: TableCellType.STRING, value: 'rgb(200, 100, 50)'},\n            colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:200, g: 100, b: 50}},\n            diff: {type: TableCellType.NUMBER, value: 1},\n          }\n        ]\n      }\n    }\n  },\n}"
                 },
                 {
                     "name": "meta",
@@ -413,6 +676,43 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts": [
+                {
+                    "name": "ColorPickerPagePropsAndOtherPageProps",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 193
+                },
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ColorPickerPagePropsAndOtherPageProps>",
+                    "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/pa-lib/src/stories/atoms/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "projects/pa-lib/src/stories/atoms/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts": [
                 {
                     "name": "Story",
@@ -465,6 +765,32 @@
                     "kind": 183
                 }
             ],
+            "projects/pa-lib/src/stories/molecules/select-form/select-form.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SelectFormComponent>",
+                    "file": "projects/pa-lib/src/stories/molecules/select-form/select-form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/pa-lib/src/stories/molecules/text-form/text-form.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TextFormComponent>",
+                    "file": "projects/pa-lib/src/stories/molecules/text-form/text-form.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "projects/pa-lib/src/stories/organisms/table/table.stories.ts": [
                 {
                     "name": "Story",
@@ -478,13 +804,13 @@
                     "kind": 183
                 }
             ],
-            "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts": [
+            "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ColorPickerPageTemplateComponent>",
-                    "file": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                    "rawtype": "StoryObj<PaintRegistrationPageTemplateComponent>",
+                    "file": "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -522,6 +848,26 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/pa-lib/src/stories/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/atoms/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/pa-lib/src/stories/atoms/file-input-button/file-input-button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -602,6 +948,46 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/pa-lib/src/stories/molecules/select-form/select-form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/molecules/select-form/select-form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/molecules/text-form/text-form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/molecules/text-form/text-form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -626,6 +1012,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Example",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -633,6 +1029,36 @@
             },
             {
                 "filePath": "projects/pa-lib/src/stories/templates/color-picker-page-template/color-picker-page-template.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "COATING_TYPE_SELECT_OPTIONS",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/templates/paint-registration-page/paint-registration-page-template.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
