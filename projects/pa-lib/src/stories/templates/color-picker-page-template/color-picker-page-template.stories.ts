@@ -1,11 +1,11 @@
 import {argsToTemplate, Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {ColorPickerPageTemplateComponent} from "./color-picker-page-template.component";
-import {Table} from "../../organisms/table/table.component";
-import * as PaintTablePageTemplate  from "../paint-table-page-template/paint-table-page-template.stories";
+import * as PaintTablePageTemplate from "../paint-table-page-template/paint-table-page-template.stories";
 import {
   PaintTablePageTemplateComponent,
   PaintTablePageTemplateInput
 } from "../paint-table-page-template/paint-table-page-template.component";
+
 const meta: Meta<ColorPickerPageTemplateComponent> = {
   title: 'Templates/ColorPickerPageTemplate',
   component: ColorPickerPageTemplateComponent,

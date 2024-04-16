@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {Component, EventEmitter, Input, Output, QueryList, ViewChildren} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {TextFormComponent} from "../../molecules/text-form/text-form.component";
 import {Option, SelectFormComponent} from "../../molecules/select-form/select-form.component";

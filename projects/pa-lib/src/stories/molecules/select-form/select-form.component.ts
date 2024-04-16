@@ -1,7 +1,6 @@
 import {Component, ElementRef, EventEmitter, HostListener, inject, Input, Output} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormField} from "../../../lib/form-field";
-import {ValidatorFn} from "@angular/forms";
 
 export type Option = {
   label: string,
