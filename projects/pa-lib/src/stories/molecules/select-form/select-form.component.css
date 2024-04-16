@@ -1,0 +1,51 @@
+.select-form {
+  border: 1px solid #0000008a;
+  position: relative;
+  cursor: pointer;
+  border-radius: 4px;
+
+  &:has(> .show) {
+    box-shadow: 0 0 0 2px #3535e7 inset;
+  }
+}
+
+.selected-value {
+  padding: 0.5em;
+
+  span {
+    display: inline-block;
+    height: 1em;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: calc(100% + 0.2em);
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+
+  &.show {
+    pointer-events: auto;
+    opacity: 1;
+  }
+}
+
+
+
+li {
+  padding: 0.5em;
+  border-bottom: 1px solid #ccc;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
