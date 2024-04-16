@@ -12,6 +12,10 @@ const defaultDataSource: Table<['name', 'rgb', 'colorPreview', 'diff']> = {
   rows: []
 }
 
+export type PaintTablePageTemplateInput = {
+  dataSource: Table<['name', 'rgb', 'colorPreview', 'diff']>
+}
+
 @Component({
   selector: 'pal-paint-table-page-template',
   standalone: true,
@@ -20,6 +24,6 @@ const defaultDataSource: Table<['name', 'rgb', 'colorPreview', 'diff']> = {
   styleUrls: ['./paint-table-page-template.component.css']
 })
 export class PaintTablePageTemplateComponent {
-  @Input() dataSource: Table<['name', 'rgb', 'colorPreview', 'diff']> = defaultDataSource;
+  @Input() input: PaintTablePageTemplateInput = {dataSource: defaultDataSource};
 }
 

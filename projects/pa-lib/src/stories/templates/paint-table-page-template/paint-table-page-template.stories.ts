@@ -19,27 +19,29 @@ export const Example: Story = {
     `
   }),
   args: {
-    dataSource: {
-      headers: {
-        name: {title: 'Name'},
-        rgb: {title: 'RGB'},
-        colorPreview: {title: 'Color'},
-        diff: {title: 'Diff'},
-      },
-      rows: [
-        {
-          name: {type: TableCellType.STRING, value: 'color name 1'},
-          rgb: {type: TableCellType.STRING, value: 'rgb(255, 255, 50)'},
-          colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:255, g: 255, b: 50}},
-          diff: {type: TableCellType.NUMBER, value: 0.98},
+    input: {
+      dataSource: {
+        headers: {
+          name: {title: 'Name'},
+          rgb: {title: 'RGB'},
+          colorPreview: {title: 'Color'},
+          diff: {title: 'Diff'},
         },
-        {
-          name: {type: TableCellType.STRING, value: 'color name 2'},
-          rgb: {type: TableCellType.STRING, value: 'rgb(200, 100, 50)'},
-          colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:200, g: 100, b: 50}},
-          diff: {type: TableCellType.NUMBER, value: 1},
-        }
-      ]
+        rows: [
+          {
+            name: {type: TableCellType.STRING, value: 'color name 1'},
+            rgb: {type: TableCellType.STRING, value: 'rgb(255, 255, 50)'},
+            colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:255, g: 255, b: 50}},
+            diff: {type: TableCellType.NUMBER, value: 0.98},
+          },
+          {
+            name: {type: TableCellType.STRING, value: 'color name 2'},
+            rgb: {type: TableCellType.STRING, value: 'rgb(200, 100, 50)'},
+            colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:200, g: 100, b: 50}},
+            diff: {type: TableCellType.NUMBER, value: 1},
+          }
+        ]
+      }
     }
   },
 };
