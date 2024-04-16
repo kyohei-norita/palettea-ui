@@ -1,28 +1,32 @@
-<div class="left">
-  <ng-container *ngIf="dataUrl() !== undefined; else noData">
-    <pal-pixel-color-picker
-      [dataUrl]="dataUrl()!"
-      (onColorPick)="colorPicked($event)"
-    />
-    画像をクリックして色を選択してください
-  </ng-container>
-  <ng-template #noData>
-    <div class="no-data-text">
-      画像ファイルをアップロードしてください
+<h1>{{input.pageTitle}}</h1>
+<div class="contents">
+  <div class="left">
+    <ng-container *ngIf="dataUrl() !== undefined; else noData">
+      <pal-pixel-color-picker
+        [dataUrl]="dataUrl()!"
+        (onColorPick)="colorPicked($event)"
+      />
+      画像をクリックして色を選択してください
+    </ng-container>
+    <ng-template #noData>
+      <div class="no-data-text">
+        画像ファイルをアップロードしてください
+      </div>
+    </ng-template>
+  </div>
+  <div class="right">
+    <pal-file-input-button (onFileLoad)="fileLoaded($event)">
+      アップロード
+    </pal-file-input-button>
+    <div class="selected-color">
+      <span
+        class="color-block"
+        [style.background-color]="selectedColor()"
+      ></span>
+      <span class="color-text">
+        {{ selectedColor() }}
+      </span>
     </div>
-  </ng-template>
-</div>
-<div class="right">
-  <pal-file-input-button (onFileLoad)="fileLoaded($event)">
-    アップロード
-  </pal-file-input-button>
-  <div class="selected-color">
-    <span
-      class="color-block"
-      [style.background-color]="selectedColor()"
-    ></span>
-    <span class="color-text">
-      {{ selectedColor() }}
-    </span>
   </div>
 </div>
+<ng-content/>
