@@ -5,8 +5,8 @@
   <div class="selected-value" (click)="toggleDropdown()">
     <span>{{ selectedOption?.label ?? '' }}</span>
   </div>
-  <div *ngIf="isInvalid">必須です</div>
   <ul [class.show]="isOpen">
     <li *ngFor="let option of input.options" (click)="selectOption(option)">{{ option.label }}</li>
   </ul>
 </div>
+<div *ngIf="isInvalid">必須です</div>

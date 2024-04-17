@@ -41,7 +41,7 @@ export class PaintRegistrationPageTemplateComponent {
   @Input({required: true}) input!: PaintRegistrationPageTemplateInput;
   @Output() onClickRegisterButton: EventEmitter<PaintRegistrationPageTemplateOutput> = new EventEmitter();
 
-  @ViewChildren(FormField) formFields!: QueryList<FormField>;
+  @ViewChildren('paintName, colorCode, coatingType') formFields!: QueryList<FormField>;
   private partialOutput?: Partial<PaintRegistrationPageTemplateOutput>;
 
   changePaintName(paintName: string) {
@@ -57,8 +57,7 @@ export class PaintRegistrationPageTemplateComponent {
     const isValid = this.formFields
       .map(f => f.validate())
       .reduce((acc, cur) => acc && cur, true)
-    if (isValid) {
-      console.log(this.partialOutput);
+    if (!isValid) {
       return
     }
     const output = validateAndCompletePaintRegistration(this.partialOutput)
