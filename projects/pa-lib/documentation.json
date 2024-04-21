@@ -104,6 +104,16 @@
                 "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/molecules/top-bar/top-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-top-bar></pal-top-bar>\n    `,\n  }),\n}"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -139,6 +149,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-paint-table-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n    input: {\n      dataSource: {\n        headers: {\n          name: {title: 'Name'},\n          rgb: {title: 'RGB'},\n          colorPreview: {title: 'Color'},\n          diff: {title: 'Diff'},\n        },\n        rows: [\n          {\n            name: {type: TableCellType.STRING, value: 'color name 1'},\n            rgb: {type: TableCellType.STRING, value: 'rgb(255, 255, 50)'},\n            colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:255, g: 255, b: 50}},\n            diff: {type: TableCellType.NUMBER, value: 0.98},\n          },\n          {\n            name: {type: TableCellType.STRING, value: 'color name 2'},\n            rgb: {type: TableCellType.STRING, value: 'rgb(200, 100, 50)'},\n            colorPreview: {type: TableCellType.COLOR_PREVIEW, rgb: {r:200, g: 100, b: 50}},\n            diff: {type: TableCellType.NUMBER, value: 1},\n          }\n        ]\n      }\n    }\n  },\n}"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/templates/top-page-template/top-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-paint-table-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n\n  },\n}"
             },
             {
                 "name": "meta",
@@ -214,6 +234,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/molecules/top-bar/top-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TopBarComponent>",
+                "defaultValue": "{\n  title: 'Molecules/TopBar',\n  component: TopBarComponent,\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -249,6 +279,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<PaintTablePageTemplateComponent>",
                 "defaultValue": "{\n  title: 'Templates/PaintTablePageTemplate',\n  component: PaintTablePageTemplateComponent,\n  tags: ['autodocs'],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/pa-lib/src/stories/templates/top-page-template/top-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TopPageTemplateComponent>",
+                "defaultValue": "{\n  title: 'Templates/TopPageTemplate',\n  component: TopPageTemplateComponent,\n  tags: ['autodocs'],\n}"
             },
             {
                 "name": "preview",
@@ -355,6 +395,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<TopBarComponent>",
+                "file": "projects/pa-lib/src/stories/molecules/top-bar/top-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<TableComponent<>>",
                 "file": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
                 "deprecated": false,
@@ -390,6 +441,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<PaintTablePageTemplateComponent>",
                 "file": "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TopPageTemplateComponent>",
+                "file": "projects/pa-lib/src/stories/templates/top-page-template/top-page-template.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -616,6 +678,28 @@
                     "defaultValue": "{\n  title: 'Molecules/TextForm',\n  component: TextFormComponent,\n  tags: ['autodocs'],\n}"
                 }
             ],
+            "projects/pa-lib/src/stories/molecules/top-bar/top-bar.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/molecules/top-bar/top-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: ({ ...args }) => ({\n    props: args,\n    template: `\n      <pal-top-bar></pal-top-bar>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/molecules/top-bar/top-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TopBarComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/TopBar',\n  component: TopBarComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
             "projects/pa-lib/src/stories/organisms/table/table.stories.ts": [
                 {
                     "name": "Example",
@@ -658,6 +742,28 @@
                     "deprecationMessage": "",
                     "type": "Meta<PaintTablePageTemplateComponent>",
                     "defaultValue": "{\n  title: 'Templates/PaintTablePageTemplate',\n  component: PaintTablePageTemplateComponent,\n  tags: ['autodocs'],\n}"
+                }
+            ],
+            "projects/pa-lib/src/stories/templates/top-page-template/top-page-template.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/templates/top-page-template/top-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: ({...args}) => ({\n    props: args,\n    template: `\n      <pal-paint-table-page-template ${argsToTemplate(args)}/>\n    `\n  }),\n  args: {\n\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/pa-lib/src/stories/templates/top-page-template/top-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TopPageTemplateComponent>",
+                    "defaultValue": "{\n  title: 'Templates/TopPageTemplate',\n  component: TopPageTemplateComponent,\n  tags: ['autodocs'],\n}"
                 }
             ],
             "projects/pa-lib/.storybook/preview.ts": [
@@ -791,6 +897,19 @@
                     "kind": 183
                 }
             ],
+            "projects/pa-lib/src/stories/molecules/top-bar/top-bar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TopBarComponent>",
+                    "file": "projects/pa-lib/src/stories/molecules/top-bar/top-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "projects/pa-lib/src/stories/organisms/table/table.stories.ts": [
                 {
                     "name": "Story",
@@ -824,6 +943,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<PaintTablePageTemplateComponent>",
                     "file": "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/pa-lib/src/stories/templates/top-page-template/top-page-template.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TopPageTemplateComponent>",
+                    "file": "projects/pa-lib/src/stories/templates/top-page-template/top-page-template.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -988,6 +1120,26 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/pa-lib/src/stories/molecules/top-bar/top-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/molecules/top-bar/top-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/pa-lib/src/stories/organisms/table/table.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -1079,6 +1231,26 @@
             },
             {
                 "filePath": "projects/pa-lib/src/stories/templates/paint-table-page-template/paint-table-page-template.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/templates/top-page-template/top-page-template.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/pa-lib/src/stories/templates/top-page-template/top-page-template.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

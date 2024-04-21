@@ -1,5 +1,6 @@
 import type { StorybookConfig } from "@storybook/angular";
 
+
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
@@ -15,5 +16,6 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  staticDirs: ['../src/assets'],
 };
 export default config;
